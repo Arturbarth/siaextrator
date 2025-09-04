@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <changeSet id="003-insert-sample-data" author="system">
+        <insert tableName="clusters">
+            <column name="alias" value="servidorLocal"/>
+            <column name="host" value="127.0.0.1"/>
+            <column name="port" value="5432"/>
+            <column name="username" value="postgres"/>
+            <column name="password" value="123"/>
+            <column name="description" value="Servidor local de desenvolvimento"/>
+            <column name="connection_active" value="false"/>
+        </insert>
+
+        <insert tableName="clusters">
+            <column name="alias" value="servidorDaNuvem"/>
+            <column name="host" value="172.1.1.1"/>
+            <column name="port" value="5432"/>
+            <column name="username" value="postgres"/>
+            <column name="password" value="123"/>
+            <column name="description" value="Servidor na nuvem"/>
+            <column name="connection_active" value="false"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
