@@ -21,8 +21,7 @@ public class DatabaseDiscoveryService {
         logger.info("Descobrindo bancos no cluster: {} ({})", cluster.getAlias(), jdbcUrl);
         
         try (Connection connection = DriverManager.getConnection(jdbcUrl, cluster.getUsername(), cluster.getPassword())) {
-            
-            String query = "SELECT datname FROM pg_database WHERE datistemplate = false AND datallowconn = true";
+            String query = "SELECT datname FROM pg_database WHERE datistemplate = false AND datallowconn = true and datname like 'banco%'";
             
             try (PreparedStatement statement = connection.prepareStatement(query);
                  ResultSet resultSet = statement.executeQuery()) {
